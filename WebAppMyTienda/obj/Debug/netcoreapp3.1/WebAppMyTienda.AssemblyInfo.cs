@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("60d6d8ea-3d50-456e-b79f-fc8db31bc9d4")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebAppMyTienda")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
