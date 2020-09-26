@@ -1,1 +1,35 @@
-﻿<p> delete</p>
+﻿
+@using WebAppMyTienda.Models.Class;
+@model tbl_Ligas
+
+@{
+    ViewBag.Title = "Eliminar";
+    ViewBag.titulo = "Ligas";
+}
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+
+            <div class="x_title">
+                <h2>@ViewBag.titulo<small>&nbsp;</small></h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <dl class="row">
+                    @Html.DisplayNameFor(model => model.NombreLigas)
+                </dl>
+                <dl class="row">
+                    @Html.DisplayFor(model => model.NombreLigas)
+                </dl>
+                <form asp-controller="Ligas" asp-action="delete" method="post">
+                    <input  type="hidden"  asp-for="idliga"/>
+                    <input  type="submit"   value="Eliminar" class="btn btn-danger"/>
+                    <a class="btn btn-primary" asp-action="Index">Volver</a>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>

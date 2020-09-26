@@ -71,5 +71,14 @@ namespace WebAppMyTienda.Controllers
             }
             return View(tbl_Ligas);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> delete(int id)
+        {
+            tbl_Ligas ListLigas = await _context.Tbl_Ligas.FindAsync(id);
+            _context.Remove(ListLigas);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
