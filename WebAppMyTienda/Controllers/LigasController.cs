@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,25 +11,29 @@ namespace WebAppMyTienda.Controllers
     public class LigasController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMapper mapper;
 
-        public LigasController(ApplicationDbContext context)
+        public LigasController(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            this.mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
         {
             List<tbl_Ligas> ListLigas = await _context.Tbl_Ligas.ToListAsync();
 
-            List<tbl_ligasDTO> ListLigasDto = new List<tbl_ligasDTO>();
+            List<tbl_ligasDTO> ListLigasDto = mapper.Map<List<tbl_ligasDTO>>(ListLigas);
 
-            foreach(tbl_Ligas item in ListLigas)
-            {
-                tbl_ligasDTO oTrans = new tbl_ligasDTO();
-                oTrans.idliga = item.idliga;
-                oTrans.NombreLigas = item.NombreLigas;
-                ListLigasDto.Add(oTrans);
-            }
+            //List<tbl_ligasDTO> ListLigasDto = new List<tbl_ligasDTO>();
+
+            //foreach(tbl_Ligas item in ListLigas)
+            //{
+            //    tbl_ligasDTO oTrans = new tbl_ligasDTO();
+            //    oTrans.idliga = item.idliga;
+            //    oTrans.NombreLigas = item.NombreLigas;
+            //    ListLigasDto.Add(oTrans);
+            //}
 
             return View(ListLigasDto);
         }
