@@ -44,12 +44,7 @@ namespace WebAppMyTienda.Controllers
             return View();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Delete(int id)
-        {
-            tbl_Ligas ListLigas = await _context.Tbl_Ligas.FindAsync(id);
-            return View(ListLigas);
-        }
+
 
         [HttpPost]
   
@@ -105,6 +100,16 @@ namespace WebAppMyTienda.Controllers
             _context.Remove(ListLigas);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            tbl_Ligas ListLigas = await _context.Tbl_Ligas.FindAsync(id);
+
+            tbl_ligasDTO ObjDTO = mapper.Map<tbl_ligasDTO>(ListLigas);
+
+            return View(ObjDTO);
         }
     }
 }
