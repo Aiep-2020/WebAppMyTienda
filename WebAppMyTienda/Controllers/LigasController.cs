@@ -77,7 +77,7 @@ namespace WebAppMyTienda.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NombreLigas")] tbl_ligasCreacionDTO tbl_Ligas)
+        public async Task<IActionResult> Edit(int id, [FromForm] tbl_ligasCreacionDTO tbl_Ligas)
         {
             if (ModelState.IsValid)
             {
