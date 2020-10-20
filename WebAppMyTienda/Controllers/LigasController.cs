@@ -48,7 +48,7 @@ namespace WebAppMyTienda.Controllers
 
         [HttpPost]
   
-        public async Task<IActionResult> Create([Bind("idliga,NombreLigas")] tbl_ligasCreacionDTO tbl_Ligas )
+        public async Task<IActionResult> Create([FromForm] tbl_ligasCreacionDTO tbl_Ligas )
         {
 
             if (ModelState.IsValid) 
