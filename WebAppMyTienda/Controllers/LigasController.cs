@@ -53,11 +53,14 @@ namespace WebAppMyTienda.Controllers
 
         [HttpPost]
   
-        public async Task<IActionResult> Create([Bind("idliga,NombreLigas")] tbl_Ligas tbl_Ligas )
+        public async Task<IActionResult> Create([Bind("idliga,NombreLigas")] tbl_ligasCreacionDTO tbl_Ligas )
         {
 
-            if (ModelState.IsValid) {
-                _context.Add(tbl_Ligas);
+            if (ModelState.IsValid) 
+            {
+                tbl_Ligas Objetosligas = mapper.Map<tbl_Ligas>(tbl_Ligas);
+
+                _context.Add(Objetosligas);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             
@@ -71,17 +74,23 @@ namespace WebAppMyTienda.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             tbl_Ligas ListLigas = await _context.Tbl_Ligas.FindAsync(id);
-            return View(ListLigas);
+
+            tbl_ligasDTO ObjDTO = mapper.Map<tbl_ligasDTO>(ListLigas);
+
+
+            return View(ObjDTO);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NombreLigas")] tbl_Ligas tbl_Ligas)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NombreLigas")] tbl_ligasCreacionDTO tbl_Ligas)
         {
             if (ModelState.IsValid)
             {
 
-                tbl_Ligas.idliga = id;
-                _context.Update(tbl_Ligas);
+                tbl_Ligas Objetosligas = mapper.Map<tbl_Ligas>(tbl_Ligas);
+                Objetosligas.idliga = id;
+
+                _context.Update(Objetosligas);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
 

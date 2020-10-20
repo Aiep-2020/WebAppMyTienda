@@ -14,6 +14,7 @@ namespace WebAppMyTienda.Helpers
         {
             // Mapeando  Ligas desde ligas a ligasDTO. => Dirigirse luego a controlador de LigasController para utilizar.
             CreateMap<tbl_Ligas, tbl_ligasDTO>();
+            CreateMap<tbl_ligasCreacionDTO, tbl_Ligas>();
 
         }
     }
