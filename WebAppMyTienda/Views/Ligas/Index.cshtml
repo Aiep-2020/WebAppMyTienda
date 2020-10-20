@@ -1,6 +1,6 @@
 ﻿
-@using WebAppMyTienda.Models.Class;
-@model List<tbl_Ligas>
+@using WebAppMyTienda.Models.DTOs;
+@model List<tbl_ligasDTO>
 
 @{
     ViewBag.Title = "Index";
@@ -34,7 +34,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach (tbl_Ligas item in Model)
+                                            @foreach (tbl_ligasDTO item in Model)
                                             {
                                                 <tr>
                                                     <td>

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebAppMyTienda.Models.Class;
+using WebAppMyTienda.Models.DTOs;
 
 namespace WebAppMyTienda.Controllers
 {
@@ -18,7 +19,18 @@ namespace WebAppMyTienda.Controllers
         public async Task<IActionResult> Index()
         {
             List<tbl_Ligas> ListLigas = await _context.Tbl_Ligas.ToListAsync();
-            return View(ListLigas);
+
+            List<tbl_ligasDTO> ListLigasDto = new List<tbl_ligasDTO>();
+
+            foreach(tbl_Ligas item in ListLigas)
+            {
+                tbl_ligasDTO oTrans = new tbl_ligasDTO();
+                oTrans.idliga = item.idliga;
+                oTrans.NombreLigas = item.NombreLigas;
+                ListLigasDto.Add(oTrans);
+            }
+
+            return View(ListLigasDto);
         }
 
         [HttpGet]
