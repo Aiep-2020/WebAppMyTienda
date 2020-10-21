@@ -1,0 +1,71 @@
+﻿
+@using WebAppMyTienda.Models.DTOs;
+@model List<tbl_EquiposDTO>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.titulo = "Equipos";
+}
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+
+            <div class="x_title">
+                <h2>@ViewBag.titulo<small>&nbsp;</small></h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <div class="form-group">
+                        <a asp-controller="Equipos" asp-action="Create" class="btn btn-info">Agregar Equipos</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card-box table-responsive">
+
+                            <table id="tbl_table_ligas" class="table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <td>Descripción</td>
+                                        <td>Fecha Fundacion</td>
+                                        <td>Editar</td>
+                                        <td>Eliminar</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (tbl_EquiposDTO item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @item.NombreEquipo
+                                            </td>
+                                            <td>
+                                                @item.FechaFundc
+                                            </td>
+                                            <td>
+                                                <a asp-controller="Equipos" asp-action="Edit" asp-route-id="@item.idEquipo "><div class="btn btn-success">Editar</div></a>
+
+                                            </td>
+                                            <td>
+                                                <a asp-controller="Equipos" asp-action="Delete" asp-route-id="@item.idEquipo"><div class="btn btn-danger">Delete</div></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="4"></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
