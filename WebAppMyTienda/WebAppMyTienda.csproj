@@ -14,6 +14,12 @@
     <Compile Remove="Migrations\20200926024910_Ligas-tabla_01.Designer.cs" />
     <Compile Remove="Migrations\20200926025255_Ligas-tabla_01.cs" />
     <Compile Remove="Migrations\20200926025255_Ligas-tabla_01.Designer.cs" />
+    <Compile Remove="Migrations\20201028113157_UpdateFecha.cs" />
+    <Compile Remove="Migrations\20201028113157_UpdateFecha.Designer.cs" />
+    <Compile Remove="Migrations\20201028113706_UpdateFechaNac.cs" />
+    <Compile Remove="Migrations\20201028113706_UpdateFechaNac.Designer.cs" />
+    <Compile Remove="Migrations\20201028113945_UpdateFechaNac2.cs" />
+    <Compile Remove="Migrations\20201028113945_UpdateFechaNac2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

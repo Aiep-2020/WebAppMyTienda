@@ -1,6 +1,6 @@
 ﻿
 @using WebAppMyTienda.Models.DTOs;
-@model JugadorDTO
+@model JugadorCreacionDTO
 @{
     ViewBag.Title = "Crear";
     ViewBag.titulo = "Crear Nueva Jugador";
@@ -18,12 +18,29 @@
                 <div class="x_content">
                     <div class="row">
                         <div class="form-group">
-                            <label asp-for="Nombre" class="control-label">Nombre</label>
+                            <label asp-for="Nombre" class="control-label"></label>
                             <div>
                                 <input asp-for="Nombre" type="text" class="form-control" />
                                 <span asp-validation-for="Nombre" class="text-danger"></span>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label asp-for="Sinopsis" class="control-label"></label>
+                            <div>
+                                <input asp-for="Sinopsis" type="text" class="form-control" />
+                                <span asp-validation-for="Sinopsis" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Trailer" class="control-label"></label>
+                            <div>
+                                <input asp-for="Trailer" type="text" class="form-control" />
+                                <span asp-validation-for="Trailer" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Guardar</button>
                         </div>
