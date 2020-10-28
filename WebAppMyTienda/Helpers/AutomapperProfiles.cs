@@ -16,6 +16,14 @@ namespace WebAppMyTienda.Helpers
             CreateMap<tbl_Ligas, tbl_ligasDTO>();
             CreateMap<tbl_ligasCreacionDTO, tbl_Ligas>();
 
+            CreateMap<tbl_Equipo, tbl_EquiposDTO>();
+            CreateMap<tbl_EquiposCreacionDTO, tbl_Equipo>();
+
+            CreateMap<Jugador, JugadorDTO>();
+            CreateMap<JugadorCreacionDTO, Jugador>();
+
+
+
         }
     }
 }

@@ -27,5 +27,49 @@ namespace WebAppMyTienda.Controllers
 
             return View(ListEquiposDto);
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromForm] tbl_EquiposCreacionDTO otbl_Equipo)
+        {
+            if (ModelState.IsValid)
+            {
+                tbl_Equipo ObjetosEquipo = mapper.Map<tbl_Equipo>(otbl_Equipo);
+                _context.Add(ObjetosEquipo);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(otbl_Equipo);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            tbl_Equipo oListEquipo = await _context.tbl_Equipos.FindAsync(id);
+            tbl_EquiposDTO ObjDTO = mapper.Map<tbl_EquiposDTO>(oListEquipo);
+            return View(ObjDTO);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, [FromForm] tbl_EquiposCreacionDTO oEquipo)
+        {
+            if (ModelState.IsValid)
+            {
+                tbl_Equipo objetoEquipo = mapper.Map<tbl_Equipo>(oEquipo);
+                objetoEquipo.idEquipo = id;
+
+                _context.Update(oEquipo);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+
+            }
+            return View(oEquipo);
+        }
     }
 }

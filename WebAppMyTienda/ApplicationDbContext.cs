@@ -18,6 +18,7 @@ namespace WebAppMyTienda
 
         public DbSet<tbl_Ligas> Tbl_Ligas { get; set; }
         public DbSet<tbl_Equipo> tbl_Equipos { get; set; }
+        public DbSet<Jugador> Jugadores { get; set; }
 
     }
 }
